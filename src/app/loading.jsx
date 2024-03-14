@@ -6,7 +6,7 @@ function LoadingNew() {
   return (
     <>
       {cards.map((card) => (
-        <Card key={card} className="w-80 space-y-5 p-4" radius="lg">
+        <Card key={card} className="w-auto md:mx-auto md:w-80 space-y-5 p-4" radius="lg">
           <Skeleton className="rounded-lg">
             <div className="h-24 rounded-lg bg-default-300"></div>
           </Skeleton>
