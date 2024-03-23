@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div className="flex min-w-screen h-auto p-5 bg-gradual-yellow fixed top-0 left-0 right-0 z-40">
-          <div className="flex flex-col mx-auto gap-3 md:flex-row md:justify-between w-full 2xl:mx-96">
+          <div className="flex flex-col mx-auto gap-3 md:flex-row md:justify-between w-full 2xl:mx-80">
             <Link
             href="/">
               <img

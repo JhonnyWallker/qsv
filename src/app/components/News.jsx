@@ -3,6 +3,7 @@
 import Link from "next/link";
 import LoadingNew from "../loading";
 import { useEffect, useState } from "react";
+import Search from "./Search";
 
 async function getData() {
   const dato = await fetch("https://whippo-eq6x.onrender.com/api/noticias");
@@ -22,13 +23,32 @@ function News() {
     });
   }, []);
 
+  const [search, setSearch] = useState([]);
+
+  const handler = (e) => {
+    setSearch(e.target.value);
+  };
+
+  let result = [];
+
+  result = load.filter((item) => item.title.toLowerCase().includes(search));
+
   return (
     <>
-      <div className="grid grid-col md:grid-cols-2 gap-3 md:m-3 lg:grid-cols-3 xl:mx-96">
+      <div className="justify-center md:m-3 hidden md:flex 2xl:mx-80">
+        <Search handler={handler} />
+      </div>
+      {result.length === 0 && !isLoading && (
+        <div className="h-screen text-center text-2xl text-slate-500">
+          No se encontraron resultados
+        </div>
+      )}
+
+      <div className="grid grid-col md:grid-cols-2 gap-3 md:m-3 lg:grid-cols-3 xl:m-3 2xl:mx-80">
         {isLoading ? (
           <LoadingNew />
         ) : (
-          load.map((post, index) => (
+          result.map((post, index) => (
             <Link
               href={`noticias/${post._id}`}
               key={post._id}

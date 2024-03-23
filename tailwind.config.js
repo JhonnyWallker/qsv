@@ -15,8 +15,13 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      backgroundColor: {
+        "black-ocean": "#202125",
+      },
       margin: {
+        "50px": "50px",
         "150px": "150px",
+        
       },
       width: {
         "425px": "425px",
