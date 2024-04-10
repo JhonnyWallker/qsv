@@ -31,7 +31,7 @@ module.exports = {
         "800px": "800px",
       },
       colors: {
-        "gradual-yellow": "#F4B860",
+        "qsv-red": "#cc1850",
         
       },
     },

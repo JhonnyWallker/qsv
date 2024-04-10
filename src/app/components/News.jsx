@@ -35,8 +35,22 @@ function News() {
 
   return (
     <>
-      <div className="justify-center md:m-3 hidden md:flex 2xl:mx-80">
+      {/* <div className="justify-center md:m-3 hidden md:flex md:justify-between gap-3 2xl:mx-80">
         <Search handler={handler} />
+      </div> */}
+      <div className="justify-center md:m-3 hidden md:flex gap-3 2xl:mx-80">
+        <Link
+          href="https://www.corrientes.gob.ar/"
+          target="blank"
+          className="hidden md:inline-flex"
+        >
+          <img
+            src="https://res.cloudinary.com/dm4wfkipp/image/upload/v1677775249/logo-corrientes_rzqz0i.png"
+            alt="Corrientes Somos Todos"
+            title="Corrientes Somos Todos"
+            className="w-80 mx-auto"
+          />
+        </Link>
       </div>
       {result.length === 0 && !isLoading && (
         <div className="h-screen text-center text-2xl text-slate-500">
@@ -52,34 +66,34 @@ function News() {
             <Link
               href={`noticias/${post._id}`}
               key={post._id}
-              className={`w-auto mx-auto rounded ${
-                index === 0 ? "lg:col-span-2 h-auto lg:relative" : ""
+              className={`w-auto mx-auto rounded mt-5 hover:text-qsv-red hover:bg-white ${
+                index === 0 ? "lg:col-span-3" : ""
               }`}
             >
-              <h5 className="bg-gradual-yellow absolute text-xs mt-2 z-10 p-1 w-32">
+              <h5
+                className={`mb-3 ml-3 text-sm underline decoration-solid font-bold ${
+                  index === 0 ? "lg:hidden" : ""
+                }`}
+              >
                 {post.category}
               </h5>
               <img
                 src={post.image_url}
                 alt={post.title}
-                className={`w-auto  ${index === 0 ? "lg:brightness-50" : ""}`}
+                className={`w-auto ${index === 0 ? "lg:hidden" : ""}`}
               />
 
-              <div
-                className={`m-3 ${
-                  index === 0 ? "lg:absolute lg:bottom-0" : ""
-                }`}
-              >
+              <div className={`m-3`}>
                 <h3
-                  className={`font-sans font-bold text-lg ${
-                    index === 0 ? "lg:text-white lg:text-xl" : ""
+                  className={`font-sans font-bold text-lg  ${
+                    index === 0 ? "lg:text-2xl mb-5 underline decoration-solid" : ""
                   }`}
                 >
                   {post.title}
                 </h3>
                 <p
                   className={`text-slate-500 m-1 text-xs ${
-                    index === 0 ? "lg:text-white lg:text-lg" : ""
+                    index === 0 ? "lg:text-lg lg:mb-5" : ""
                   }`}
                 >
                   {post.description}
